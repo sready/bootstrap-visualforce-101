@@ -1,0 +1,17 @@
+<apex:page sidebar="true" showheader="true" standardStylesheets="true" docType="html-5.0" 
+standardController="Recipe__c" recordSetVar="recipes">
+
+
+<apex:pageBlock >   
+    <apex:pageBlockTable value="{!recipes}" var="r">
+        <apex:column value="{!r.Dish__c}" />
+        <apex:column value="{!r.Side__c}" />
+        <apex:column >
+            <apex:facet name="header">Image</apex:facet> 
+            <apex:image url="{!r.Image_URL__c}" height="150" />
+        </apex:column>       
+        <apex:column value="{!r.Star_Rating__c}" />
+    </apex:pageBlockTable>
+
+</apex:pageBlock>
+</apex:page>

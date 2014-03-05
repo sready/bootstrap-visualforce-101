@@ -1,0 +1,53 @@
+<apex:page sidebar="false" showheader="false" standardStylesheets="false" docType="html-5.0" 
+standardController="Recipe__c" recordSetVar="recipes">
+    
+<html lang="en">
+  <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="description" content=""/>
+      <meta name="author" content=""/>
+
+
+    <title>Justified Nav Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+      <apex:stylesheet value="{!URLFOR($Resource.bootstrap, '/css/bootstrap.min.css')}" />
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <apex:repeat value="{!recipes}" var="r" >
+            <div class="col-lg-4">
+                <h3><apex:outputField value="{!r.Dish__c}" /></h3>
+                <h5><apex:outputField value="{!r.Side__c}" /></h5>
+                <div>
+                    <apex:image url="{!r.Image_URL__c}" height="150px" styleClass="img-responsive" />
+                    <div style="float:right;"><apex:outputField value="{!r.Prep_Time__c}" /></div>
+                    <div style="float:left;"><apex:outputField value="{!r.Star_Rating__c}" /></div>
+                </div>
+                <p style="clear:left;float:right;"><a class="btn btn-primary" href="#" role="button">View Recipe &raquo;</a></p>        
+            </div>
+          </apex:repeat> 
+      </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+
+</apex:page>
